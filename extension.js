@@ -162,7 +162,9 @@ const ConnectionManager = new Lang.Class({
                     menuItem = new PopupMenu.PopupBaseMenuItem();
                     
                     icon = new St.Icon({icon_name: 'terminal',
-                            style_class: 'connmgr-icon' });
+                            // style_class: 'connmgr-icon' });
+                            // Bovenstaande code zorgt ervoor dat de menu-onderdelen vergroten zodra de screensaver actief wordt of het scherm wordt vergrendeld.
+                            icon_size: 16 });
                     menuItem.actor.add_child(icon);
                     
                     label = new St.Label({ text: ident+child.Name });
@@ -204,7 +206,9 @@ const ConnectionManager = new Lang.Class({
 
                     menuItem = new PopupMenu.PopupBaseMenuItem();
                     icon = new St.Icon({icon_name: 'gtk-execute',
-                            style_class: 'connmgr-icon' });
+                            // style_class: 'connmgr-icon' });
+                            // Zie opmerking op regel 166
+                            icon_size: 16 });
                     menuItem.actor.add_child(icon);
 
                     label = new St.Label({ text: ident+child.Name });
