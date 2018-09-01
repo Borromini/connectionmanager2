@@ -17,6 +17,7 @@
 #   You should have received a copy of the GNU Library General Public
 #   License along with this library; if not, write to the Free Software
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+import gi
 
 from gi.repository import GLib
 
@@ -25,6 +26,7 @@ from gi.repository import GLib
 if hasattr(GLib, "set_prgname"):
     GLib.set_prgname('Connection Manager')
 
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, Gio
 from StringIO import StringIO
 
@@ -38,8 +40,8 @@ import sys
 
 VERSION = '0.8.5'
 
-supportedTerms = ["Gnome Terminal", "Terminator", "Guake", "TMux", "urxvt", "urxvt256c", "LilyTerm", "Mate Terminal", "XFCE terminal"]
-supportedTermsCmd = ["gnome-terminal", "terminator", "guake", "tmux", "urxvt", "urxvt256c", "lilyterm", "mate-terminal", "xfce4-terminal"]
+supportedTerms = ["Gnome Terminal", "Terminator", "Guake", "TMux", "urxvt", "urxvt256c", "LilyTerm", "Mate Terminal", "XFCE Terminal", "Terminix"]
+supportedTermsCmd = ["gnome-terminal", "terminator", "guake", "tmux", "urxvt", "urxvt256c", "lilyterm", "mate-terminal", "xfce4-terminal", "terminix"]
 supportedTermsSite = ["http://library.gnome.org/users/gnome-terminal/stable/",
                       "http://www.tenshu.net/p/terminator.html",
                       "http://guake.org/",
@@ -48,7 +50,8 @@ supportedTermsSite = ["http://library.gnome.org/users/gnome-terminal/stable/",
                       "http://software.schmorp.de/pkg/rxvt-unicode.html",
                       "http://lilyterm.luna.com.tw/index.html",
                       "http://www.mate-desktop.org/",
-                      "http://www.xfce.org/"
+                      "http://www.xfce.org/",
+                      "https://github.com/gnunn1/terminix"
                       ]
 
 # TreeStore object:

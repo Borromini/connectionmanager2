@@ -100,7 +100,7 @@ const ConnectionManager = new Lang.Class({
 
         if (GLib.file_test(this._configFile, GLib.FileTest.EXISTS) ) {
 
-            let filedata = GLib.file_get_contents(this._configFile, null, 0);
+            let filedata = GLib.file_get_contents(this._configFile);
             let jsondata = JSON.parse(filedata[1]);
             let root = jsondata['Root'];
 
@@ -307,7 +307,7 @@ const ConnectionManager = new Lang.Class({
                         mycommand += commandTab[c]+' ';
                     }
 
-                    Util.spawnCommandLine(' sh -c '+(sshparamsTab[0]+' '+term+' '+mycommand).quote()+' &');
+                    Util.spawnCommandLine(' sh -c '+JSON.stringify(sshparamsTab[0]+' '+term+' '+mycommand)+' &');
                 });
             }
 
